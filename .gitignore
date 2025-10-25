@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Stuff
+# Not getting the game code. Get it yourself
+NeoBonerooms.Mod/Libs/Assembly-CSharp.dll
+
 # User-specific files
 *.rsuser
 *.suo

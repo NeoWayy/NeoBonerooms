@@ -10,13 +10,28 @@ namespace NeoBonerooms.Mod
         public const string PLUGIN_NAME = "NeoBonerooms";
         public const string PLUGIN_VERSION = "1.0.0";
 
+        private DisplayUI displayUI;
+
         internal static new ManualLogSource Logger;
 
-        private void Awake()
+        public void Awake()
         {
-            // Plugin startup logic
+            displayUI = gameObject.AddComponent<DisplayUI>();
+
             Logger = base.Logger;
             Logger.LogInfo($"Plugin {PLUGIN_GUID} is loaded!");
+        }
+
+        public void Update()
+        {
+            var lines = displayUI.lines;
+            lines.Clear();
+
+            if (scrGameControl.Instance == null || scrGameControl.Instance.localPlayerID == -1)
+            {
+                lines.Add("Welcome, Player!");
+                return;
+            }
         }
     }
 }

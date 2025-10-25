@@ -25,37 +25,34 @@
 
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\0Harmony.dll</HintPath>
+      <HintPath>Libs\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\Assembly-CSharp.dll</HintPath>
+      <HintPath>Libs\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\BepInEx.dll</HintPath>
-    </Reference>
-    <Reference Include="Memory">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\Memory.dll</HintPath>
+      <HintPath>Libs\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\Unity.InputSystem.dll</HintPath>
+      <HintPath>Libs\Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Netcode.Runtime">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\Unity.Netcode.Runtime.dll</HintPath>
+      <HintPath>Libs\Unity.Netcode.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.dll</HintPath>
+      <HintPath>Libs\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>Libs\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>Libs\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>Libs\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
-      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.InputModule.dll</HintPath>
+      <HintPath>Libs\UnityEngine.InputModule.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
