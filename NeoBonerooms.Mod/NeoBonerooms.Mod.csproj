@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>NeoBonerooms.Mod</AssemblyName>
+    <Product></Product>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>NeoBonerooms.Mod</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="UnityEngine.Modules" Version="6000.0.59" IncludeAssets="compile" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Memory">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Netcode.Runtime">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\Unity.Netcode.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>C:\Users\sofiaslost\Projects\BoneyEssentials\BoneyEssentials\Libs\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
