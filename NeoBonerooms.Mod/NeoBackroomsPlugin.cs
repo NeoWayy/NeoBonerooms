@@ -1,9 +1,14 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
+using Steamworks;
+using HarmonyLib;
+using System;
+using NeoBonerooms.Mod.Utilities;
 
 namespace NeoBonerooms.Mod
 {
     [BepInPlugin(PLUGIN_GUID, PLUGIN_NAME, PLUGIN_VERSION)]
+    [BepInProcess("Bonerooms.exe")]
     public class NeoBackroomsPlugin : BaseUnityPlugin
     {
         public const string PLUGIN_GUID = "org.neowayy.neobonerooms";
@@ -12,14 +17,34 @@ namespace NeoBonerooms.Mod
 
         private DisplayUI displayUI;
 
-        internal static new ManualLogSource Logger;
+        string playerSteamName = "N/A";
+
+        public NeoBackroomsPlugin()
+        {
+            PluginSingleton<NeoBackroomsPlugin>.Instance = this;
+        }
 
         public void Awake()
         {
+            var harmony = new Harmony(PLUGIN_GUID);
+
             displayUI = gameObject.AddComponent<DisplayUI>();
 
-            Logger = base.Logger;
-            Logger.LogInfo($"Plugin {PLUGIN_GUID} is loaded!");
+            try
+            {
+                if (!SteamClient.IsValid)
+                {
+                    SteamClient.Init(2719940, true); // The Bonerooms App ID
+                }
+                playerSteamName = SteamClient.Name;
+                Logger.LogInfo($"Steam name loaded: {playerSteamName}");
+            }
+            catch (Exception e)
+            {
+                Logger.LogError($"Failed to get Steam name: {e}");
+            }
+
+            harmony.PatchAll();
         }
 
         public void Update()
@@ -29,7 +54,7 @@ namespace NeoBonerooms.Mod
 
             if (scrGameControl.Instance == null || scrGameControl.Instance.localPlayerID == -1)
             {
-                lines.Add("Welcome, Player!");
+                lines.Add($"Welcome, {playerSteamName}!");
                 return;
             }
         }

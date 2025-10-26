@@ -22,7 +22,7 @@ public class DisplayUI : MonoBehaviour
         if (Keyboard.current.f5Key.wasPressedThisFrame)
         {
             _isVisible = !_isVisible;
-            Debug.Log("Toggled GUI: " + _isVisible);
+            //Debug.Log("Toggled GUI: " + _isVisible);
         }
 
         // Smooth fade
