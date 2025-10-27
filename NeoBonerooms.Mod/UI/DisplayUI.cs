@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using NeoBonerooms.Mod.Patches;
+using NeoBonerooms.Mod.Utilities;
 
 public class DisplayUI : MonoBehaviour
 {
     public List<string> lines = new();
 
     // Menu Settings
-    private bool _isVisible = true;
+    private bool _isVisible = false;
     private float _alpha = 1f;
     private float _slideProgress = 1f;
     private float _fadeSpeed = 2f;
@@ -22,7 +24,7 @@ public class DisplayUI : MonoBehaviour
         if (Keyboard.current.f5Key.wasPressedThisFrame)
         {
             _isVisible = !_isVisible;
-            //Debug.Log("Toggled GUI: " + _isVisible);
+            Debug.Log("Toggled GUI: " + _isVisible);
         }
 
         // Smooth fade
@@ -78,6 +80,15 @@ public class DisplayUI : MonoBehaviour
                 Rect labelRect = new Rect(boxRect.x + _boxStyle.padding.left, yOffset, boxWidth - 30, lineHeight);
                 GUI.Label(labelRect, line, _labelStyle);
                 yOffset += lineHeight;
+            }
+
+            Rect buttonRect = new Rect(boxRect.x + _boxStyle.padding.left, yOffset, 150, lineHeight + 4);
+            string buttonText = infiniteStaminaPatch.Enabled ? "Infinite Stamina: ON" : "Infinite Stamina: OFF";
+            GUI.backgroundColor = infiniteStaminaPatch.Enabled ? Color.green : Color.red;
+
+            if (GUI.Button(buttonRect, buttonText))
+            {
+                infiniteStaminaPatch.Enabled = !infiniteStaminaPatch.Enabled;
             }
 
             GUI.color = originalColor;

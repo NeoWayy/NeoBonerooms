@@ -28,8 +28,13 @@ namespace NeoBonerooms.Mod.Patches
         private static readonly AccessTools.FieldRef<scrPlayer, float> staminaRechargeRateField =
             AccessTools.FieldRefAccess<scrPlayer, float>("staminaRechargeRate");
 
+        public static bool Enabled { get; set; } = true;
+
         public static void Postfix(scrPlayer __instance)
         {
+            if (!Enabled)
+                return;
+
             staminaDrainRateField(__instance) = 0f;
 
             staminaField(__instance) = maxStaminaField(__instance);
