@@ -5,7 +5,8 @@ A mod for The Bonerooms.
 ## 🚀 Features
 
 - Infinite Stamina
-- In-Game GUI to display Match Time.
+- DotESP (Keyboard Keybind: F2)
+- In-Game GUI to display Match Time. | Coming later
 
 ## ⚒️ Fixes
 

@@ -1,8 +1,5 @@
 ﻿using HarmonyLib;
 using NeoBonerooms.Mod.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine.InputSystem;
 
 namespace NeoBonerooms.Mod.Patches
@@ -45,5 +42,20 @@ namespace NeoBonerooms.Mod.Patches
             return Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed;
         }
         #endregion
+    }
+
+    [HarmonyPatch(typeof(Player), MethodType.Constructor)]
+    public class playerItemsPatch
+    {
+        public static void Postfix(Player __instance)
+        {
+            //__instance.playerItems = new Item[8];
+
+            if (__instance.playerItems == null || __instance.playerItems.Length < 8)
+            {
+                __instance.playerItems = new Item[8];
+                Logger<NeoBackroomsPlugin>.Info("Expanded the player's inventory to 8 slots");
+            }
+        }
     }
 }

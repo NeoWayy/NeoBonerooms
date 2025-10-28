@@ -1,9 +1,10 @@
 ﻿using BepInEx;
-using BepInEx.Logging;
 using Steamworks;
 using HarmonyLib;
 using System;
 using NeoBonerooms.Mod.Utilities;
+using NeoBonerooms.Mod.Features;
+using UnityEngine;
 
 namespace NeoBonerooms.Mod
 {
@@ -13,9 +14,10 @@ namespace NeoBonerooms.Mod
     {
         public const string PLUGIN_GUID = "org.neowayy.neobonerooms";
         public const string PLUGIN_NAME = "NeoBonerooms";
-        public const string PLUGIN_VERSION = "1.0.1";
+        public const string PLUGIN_VERSION = "1.1.0";
 
         private DisplayUI displayUI;
+        private DotESP dotESP;
 
         string playerSteamName = "N/A";
 
@@ -54,9 +56,24 @@ namespace NeoBonerooms.Mod
 
             if (scrGameControl.Instance == null || scrGameControl.Instance.localPlayerID == -1)
             {
-                lines.Add($"Welcome, {playerSteamName}!");
+                lines.Add($"Welcome, {playerSteamName}!\nChange these values before creating a lobby");
                 return;
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(scrGameControl), "Start")]
+    public static class GameControlManager
+    {
+        static void Postfix()
+        {
+            if (GameObject.Find("NeoBonerooms") != null)
+                return;
+
+            var obj = new GameObject("NeoBonerooms");
+            obj.AddComponent<DotESP>();
+            UnityEngine.Object.DontDestroyOnLoad(obj);
+            Logger<NeoBackroomsPlugin>.Warning("Loaded Features");
         }
     }
 }
