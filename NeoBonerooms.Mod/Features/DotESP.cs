@@ -18,7 +18,7 @@ namespace NeoBonerooms.Mod.Features
 
         void Update()
         {
-            if (Keyboard.current.f2Key.isPressed)
+            if (Keyboard.current.f2Key.wasPressedThisFrame)
                 enabled = !enabled;
 
             if (Camera.main == null)

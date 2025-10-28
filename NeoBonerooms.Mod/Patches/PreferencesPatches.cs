@@ -3,7 +3,7 @@
 namespace NeoBonerooms.Mod.Patches
 {
     [HarmonyPatch(typeof(Preferences), MethodType.Constructor)]
-    public static class PreferencesPatches
+    public class PreferencesPatches
     {
         public static void Postfix(Preferences __instance)
         {

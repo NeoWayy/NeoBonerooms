@@ -14,7 +14,7 @@ namespace NeoBonerooms.Mod
     {
         public const string PLUGIN_GUID = "org.neowayy.neobonerooms";
         public const string PLUGIN_NAME = "NeoBonerooms";
-        public const string PLUGIN_VERSION = "1.1.0";
+        public const string PLUGIN_VERSION = "1.1.1";
 
         private DisplayUI displayUI;
         private DotESP dotESP;
@@ -56,9 +56,18 @@ namespace NeoBonerooms.Mod
 
             if (scrGameControl.Instance == null || scrGameControl.Instance.localPlayerID == -1)
             {
-                lines.Add($"Welcome, {playerSteamName}!\nChange these values before creating a lobby");
+                lines.Add($"Welcome, {playerSteamName}!");
                 return;
             }
+
+            // MATCH
+            lines.Add($"Survived: {Timings.FormatTime(scrGameControl.Instance.gameBoneroomsScript.timeSurvived)}");
+            lines.Add($"Maze Respawns: {scrGameControl.Instance.gameBoneroomsScript.interval}");
+            lines.Add($"Best Time: {Timings.FormatTime(scrGameControl.Instance.gameBoneroomsScript.bestTime)}");
+
+            lines.Add($""); // Adds a space in between MATCH and FEATURES
+
+            lines.Add($"Features:");
         }
     }
 
